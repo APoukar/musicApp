@@ -16,7 +16,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlbumsActivity"></activity>
+        <activity
+            android:name=".SongsActivity"
+            android:label="@string/songs"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
+            android:name=".AlbumsActivity"
+            android:label="@string/albums"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
     </application>
 
 </manifest>
