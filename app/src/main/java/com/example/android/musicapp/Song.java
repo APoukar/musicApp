@@ -4,7 +4,7 @@ package com.example.android.musicapp;
  * Created by adam on 25.2.18.
  */
 
-public final class Song {
+public class Song {
     private String mSongName;
     private String mArtist;
     private String mAlbum;
@@ -17,15 +17,15 @@ public final class Song {
         //mAlbumCover = albumCover;
     }
 
-    public String getSongName {
+    public String getSongName() {
         return mSongName;
     }
 
-    public String getArtist {
+    public String getArtist() {
         return mArtist;
     }
 
-    public String getAlbum {
+    public String getAlbum() {
         return mAlbum;
     }
 }
