@@ -31,7 +31,10 @@ public class SongsFragment extends android.support.v4.app.Fragment {
 
         View rootView = inflater.inflate(R.layout.activity_songs, container, false);
         //TODO create loop to get all the songs from the device
-        ArrayList<Song> songs = new ArrayList<Song>();
+        ArrayList<Song> songs = new ArrayList<>();
+        songs.add(new Song("name1", "artist1", "album1"));
+        songs.add(new Song("name2", "artist2", "album2"));
+        songs.add(new Song("name3", "artist3", "album3"));
 
         AndroidSongAdapter songAdapter = new AndroidSongAdapter(getActivity(), songs);
         ExpandableHeightListView songList = rootView.findViewById(R.id.song_list);
