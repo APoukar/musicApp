@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.musicapp.Play;
@@ -39,6 +40,7 @@ public class LastPlayedAdapter extends RecyclerView.Adapter<LastPlayedAdapter.La
         final Song current = mData.get(position);
         holder.songName.setText(current.getSongName());
         holder.author.setText(current.getArtist());
+        holder.albumCover.setImageResource(current.getAlbumCover());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,10 +61,12 @@ public class LastPlayedAdapter extends RecyclerView.Adapter<LastPlayedAdapter.La
 
         TextView songName;
         TextView author;
+        ImageView albumCover;
 
         //TODO: Refactor activity_album_item to be universal
         LastPlayedViewHolder(View itemView) {
             super(itemView);
+            albumCover = itemView.findViewById(R.id.item_image);
             songName = itemView.findViewById(R.id.item_first_line);
             author = itemView.findViewById(R.id.item_second_line);
 

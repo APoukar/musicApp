@@ -11,7 +11,8 @@ public class Song implements Parcelable {
     private String mSongName;
     private String mArtist;
     private String mAlbum;
-    //private String mAlbumCover;
+    private static final int NO_IMAGE_PROVIDED = -1;
+    private int mAlbumCover;
 
     public static final Creator<Song> CREATOR = new Creator<Song>() {
         @Override
@@ -25,17 +26,18 @@ public class Song implements Parcelable {
         }
     };
 
-    Song(String songName, String artist, String album) {
+    Song(String songName, String artist, String album, int albumCover) {
         mSongName = songName;
         mArtist = artist;
         mAlbum = album;
-        //mAlbumCover = albumCover;
+        mAlbumCover = albumCover;
     }
 
     private Song(Parcel in) {
         mSongName = in.readString();
         mArtist = in.readString();
         mAlbum = in.readString();
+        mAlbumCover = in.readInt();
     }
 
     public String getSongName() {
@@ -50,6 +52,10 @@ public class Song implements Parcelable {
         return mAlbum;
     }
 
+    public int getAlbumCover() {
+        return mAlbumCover;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -60,5 +66,6 @@ public class Song implements Parcelable {
         dest.writeString(mSongName);
         dest.writeString(mArtist);
         dest.writeString(mAlbum);
+        dest.writeInt(mAlbumCover);
     }
 }

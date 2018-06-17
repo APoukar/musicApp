@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.musicapp.Play;
@@ -14,9 +15,6 @@ import com.example.android.musicapp.Song;
 
 import java.util.Collections;
 import java.util.List;
-
-import static android.app.PendingIntent.getActivity;
-import static android.support.v4.content.ContextCompat.startActivity;
 
 public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder> {
 
@@ -43,6 +41,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumViewH
         final Song current = mData.get(position);
         holder.albumName.setText(current.getAlbum());
         holder.author.setText(current.getArtist());
+        holder.albumCover.setImageResource(current.getAlbumCover());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,9 +62,11 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumViewH
 
         TextView albumName;
         TextView author;
+        ImageView albumCover;
 
         AlbumViewHolder(View itemView) {
             super(itemView);
+            albumCover = itemView.findViewById(R.id.item_image);
             albumName = itemView.findViewById(R.id.item_first_line);
             author = itemView.findViewById(R.id.item_second_line);
         }

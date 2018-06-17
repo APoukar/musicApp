@@ -37,7 +37,7 @@ public class SongsFragment extends android.support.v4.app.Fragment implements Ad
 
     private void addSongs() {
         for (int i = 0; i < 25; i++) {
-            songs.add(new Song("Name " + i, "Artist " + i, "Album " + i));
+            songs.add(new Song("Name " + i, "Artist " + i, "Album " + i, R.drawable.letitbe));
         }
     }
 

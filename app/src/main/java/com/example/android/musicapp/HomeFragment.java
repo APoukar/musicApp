@@ -38,7 +38,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     private static List<Song> addSongs() {
         ArrayList<Song> list = new ArrayList<>();
         for (int i = 0; i < 25; i++) {
-            list.add(new Song("Name " + i, "Artist " + i, "Album " + i));
+            list.add(new Song("Name " + i, "Artist " + i, "Album " + i, R.drawable.letitbe));
         }
         return list;
     }
