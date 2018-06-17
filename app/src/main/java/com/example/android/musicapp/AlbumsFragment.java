@@ -1,16 +1,15 @@
 package com.example.android.musicapp;
 
-import android.app.Fragment;
-import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
+import com.example.android.musicapp.Adapters.AlbumsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,9 @@ public class AlbumsFragment extends android.support.v4.app.Fragment {
         albums.add(new Song("name4", "artist4", "album4"));
         albums.add(new Song("name5", "artist5", "album5"));
         albums.add(new Song("name6", "artist6", "album6"));
+        albums.add(new Song("name7", "artist7", "album7"));
+        albums.add(new Song("name8", "artist8", "album8"));
+        albums.add(new Song("name9", "artist9", "album9"));
         return albums;
     }
 
@@ -42,7 +44,7 @@ public class AlbumsFragment extends android.support.v4.app.Fragment {
         recyclerView = layout.findViewById(R.id.recycle_view_albums);
         adapter = new AlbumsAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
         return layout;
     }
