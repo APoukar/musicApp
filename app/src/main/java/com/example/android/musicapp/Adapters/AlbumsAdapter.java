@@ -1,41 +1,57 @@
 package com.example.android.musicapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.android.musicapp.Play;
 import com.example.android.musicapp.R;
 import com.example.android.musicapp.Song;
 
 import java.util.Collections;
 import java.util.List;
 
+import static android.app.PendingIntent.getActivity;
+import static android.support.v4.content.ContextCompat.startActivity;
+
 public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder> {
 
     private LayoutInflater inflater;
+    private Context mContext;
     private List<Song> mData = Collections.emptyList();
 
     public AlbumsAdapter(Context context, List<Song> data) {
-        inflater = LayoutInflater.from(context);
+        mContext = context;
+        inflater = LayoutInflater.from(mContext);
         mData = data;
     }
 
     @Override
     public AlbumViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.activity_album_item, parent, false);
+        View view = inflater.inflate(R.layout.recycleview_item, parent, false);
 
         return new AlbumViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(AlbumViewHolder holder, int position) {
-        Song current = mData.get(position);
+    public void onBindViewHolder(final AlbumViewHolder holder, int position) {
+        final Song current = mData.get(position);
         holder.albumName.setText(current.getAlbum());
         holder.author.setText(current.getArtist());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent playSong = new Intent(mContext, Play.class)
+                        .putExtra("song", current);
+                mContext.startActivity(playSong);
+            }
+        });
     }
 
     @Override
@@ -50,8 +66,8 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumViewH
 
         AlbumViewHolder(View itemView) {
             super(itemView);
-            albumName = itemView.findViewById(R.id.album_item_album);
-            author = itemView.findViewById(R.id.album_item_author);
+            albumName = itemView.findViewById(R.id.item_first_line);
+            author = itemView.findViewById(R.id.item_second_line);
         }
     }
 }

@@ -15,21 +15,13 @@ import java.util.List;
 
 public class HomeFragment extends android.support.v4.app.Fragment {
 
-    RecyclerView lastPlayedrecyclerView;
+    RecyclerView lastPlayedRecyclerView;
     RecyclerView favoriteRecyclerView;
     RecyclerView recentRecyclerView;
     LastPlayedAdapter adapter;
 
     public HomeFragment() {
 
-    }
-
-    private static List<Song> getData() {
-        ArrayList<Song> list = new ArrayList<>();
-        for (int i = 0; i < 25; i++) {
-            list.add(new Song("Name " + i, "Artist " + i, "Album " + i));
-        }
-        return list;
     }
 
     @Nullable
@@ -43,23 +35,31 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
     }
 
+    private static List<Song> addSongs() {
+        ArrayList<Song> list = new ArrayList<>();
+        for (int i = 0; i < 25; i++) {
+            list.add(new Song("Name " + i, "Artist " + i, "Album " + i));
+        }
+        return list;
+    }
+
     private void setUpLastPlayed(View layout) {
-        lastPlayedrecyclerView = layout.findViewById(R.id.recycle_view_last_played);
-        adapter = new LastPlayedAdapter(getActivity(), getData());
-        lastPlayedrecyclerView.setAdapter(adapter);
-        lastPlayedrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        lastPlayedRecyclerView = layout.findViewById(R.id.recycle_view_last_played);
+        adapter = new LastPlayedAdapter(getActivity(), addSongs());
+        lastPlayedRecyclerView.setAdapter(adapter);
+        lastPlayedRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setUpFavorite(View layout) {
         favoriteRecyclerView = layout.findViewById(R.id.recycle_view_favorite);
-        adapter = new LastPlayedAdapter(getActivity(), getData());
+        adapter = new LastPlayedAdapter(getActivity(), addSongs());
         favoriteRecyclerView.setAdapter(adapter);
         favoriteRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setUpRecent(View layout) {
         recentRecyclerView = layout.findViewById(R.id.recycle_view_new_added);
-        adapter = new LastPlayedAdapter(getActivity(), getData());
+        adapter = new LastPlayedAdapter(getActivity(), addSongs());
         recentRecyclerView.setAdapter(adapter);
         recentRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
     }

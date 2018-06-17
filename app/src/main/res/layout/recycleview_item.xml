@@ -18,7 +18,7 @@
         android:src="@drawable/letitbe" />
 
     <TextView
-        android:id="@+id/home_item_song"
+        android:id="@+id/item_first_line"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -27,7 +27,7 @@
         tools:text="Album name" />
 
     <TextView
-        android:id="@+id/home_item_author"
+        android:id="@+id/item_second_line"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
