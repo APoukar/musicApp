@@ -17,4 +17,12 @@
         <item name="android:padding">16dp</item>
     </style>
 
+    <style name="Heading">
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">16dp</item>
+    </style>
+
 </resources>

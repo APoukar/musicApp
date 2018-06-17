@@ -27,7 +27,6 @@
             android:gravity="center"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/album_item_author"
             tools:text="Album name" />
 
         <TextView

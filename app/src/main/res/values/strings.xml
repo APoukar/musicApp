@@ -3,6 +3,9 @@
     <string name="home">Home</string>
     <string name="albums">Albums</string>
     <string name="songs">Songs</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Main Activity</string>
+    <string name="last_played">Last played</string>
+    <string name="favorite">Your favourite</string>
+    <string name="new_added">New added</string>
 
 </resources>
